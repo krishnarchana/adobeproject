@@ -1,38 +1,146 @@
-.App {
-  text-align: center;
+﻿.custom-search input {
+    border-radius: 15px !important; /* Rounded corners */
+    padding: 8px 36px !important; /* Adjust padding */
+    font-size: 14px !important;
+    background-color: white !important;
+    border: 1px solid #ddd !important;
+    height: 34px !important; /* Set fixed height */
+    line-height: normal !important;
+    vertical-align: middle !important;
+    width:280px;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.custom-search svg {
+    right:-30px;
+    top: 10px !important; /* Moves icon slightly down for alignment */
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+
+    .custom-search input:focus {
+        border-color: #888 !important;
+        outline: none !important;
+    }
+
+.beta-badge {
+    background-color: #e0e0e0 !important; /* Light gray */
+    color: #333 !important; /* Dark text */
+    font-size: 12px !important;
+    padding: 2px 6px !important;
+    border-radius: 4px !important;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+
+.dropdown-container {
+    display: flex;
+    gap: 10px; /* Space between buttons */
 }
 
-.App-link {
-  color: #61dafb;
+.custom-dropdown {
+    background-color: #f0f0f0; /* Full grey background */
+    padding: 0px 12px;
+    border-radius: 6px;
+    display: inline-flex;
+    align-items: center;
+    cursor: pointer;
+    
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+    .custom-dropdown button {
+        background: transparent !important;
+        border: none !important;
+    }
+
+
+
+.header-controls {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+/* Date Picker Container with Light Gray Border & Rounded Corners */
+.date-picker-container {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    border: 1px solid #ccc;
+    border-radius: 20px;
+    padding: 0px 0px;
+    background: #f9f9f9;
+    width: fit-content;
+}
+
+/* Calendar Icon Styling */
+.calendar-icon {
+    width: 20px;
+    height: 20px;
+    color: gray;
+}
+
+/* Adobe React Spectrum Date Picker Styling */
+.custom-date-picker {
+    background: transparent !important;
+    border: none !important;
+    font-size: 14px;
+}
+
+
+/* Button Styles */
+.icon-button {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    border-radius: 10px;
+    padding: 8px 12px;
+}
+
+.gray-border {
+    border: 1px solid #ccc !important; /* Light gray border */
+    background: white;
+    color: black;
+}
+
+
+/* Container with Light Gray Border & Rounded Corners */
+.toggle-container {
+    display: flex;
+    border: 1px solid #ccc;
+    border-radius: 20px;
+    overflow: hidden;
+    background: #f9f9f9;
+    width:260px !important;
+}
+
+/*  Toggle Button Styling */
+.toggle-btn {
+    flex: 1;
+    border-radius: 0;
+    padding: 8px 12px;
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    color: black;
+    transition: background 0.3s ease-in-out, color 0.3s ease-in-out;
+}
+
+    /*  Selected State - Blue Background */
+    .toggle-btn.selected {
+        background: #007bff !important;
+        color: white !important;
+    }
+
+    /*  Rounded Left & Right Corners */
+    .toggle-btn:first-child {
+        border-radius: 20px 0 0 20px;
+    }
+
+    .toggle-btn:last-child {
+        border-radius: 0 20px 20px 0;
+    }
+
+/*  Icon Alignment */
+.toggle-icon {
+    width: 18px;
+    height: 18px;
 }
