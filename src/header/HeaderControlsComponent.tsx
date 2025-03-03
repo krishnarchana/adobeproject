@@ -42,7 +42,7 @@ const HeaderControlsComponent: React.FC = () => {
                         value={value}
                         onChange={(newValue) => newValue && setValue(newValue)}
                         granularity="day"
-                        UNSAFE_className="custom-date-picker"
+                        UNSAFE_className="custom-date-picker gray-border"
                     />
 
                 {/* Presentation Mode Button */}

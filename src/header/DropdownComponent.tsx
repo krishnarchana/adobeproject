@@ -3,36 +3,34 @@ import { Provider, defaultTheme, ActionButton, Menu, Item, MenuTrigger } from "@
 import Add from "@spectrum-icons/workflow/Add";
 import ChevronDown from "@spectrum-icons/workflow/ChevronDown";
 
-const DropdownComponent: React.FC = () => {
+interface DropdownProps {
+    menuItems: { id: number; label: string }[];
+    selectedItem?: string;
+}
+
+const DropdownComponent: React.FC<DropdownProps> = ({ menuItems, selectedItem }) => {
     return (
         <Provider theme={defaultTheme}>
             <div className="dropdown-container">
-                {/* Actions Dropdown */}
                 <div className="custom-dropdown">
                     <MenuTrigger>
-                        <ActionButton isQuiet>
-                            Actions <ChevronDown />
-                        </ActionButton>
+                        {selectedItem === "action" ?
+                            <ActionButton isQuiet>
+                                Actions <ChevronDown />
+                            </ActionButton>
+                            :
+                            <ActionButton isQuiet>
+                                Create <Add />
+                            </ActionButton>
+                        }
                         <Menu>
-                            <Item key="edit">Edit</Item>
-                            <Item key="delete">Delete</Item>
-                            <Item key="share">Share</Item>
+                            {menuItems && menuItems.map((item: any) => (
+                                <Item key={item.id}>{item.label}</Item>
+                            ))}
                         </Menu>
                     </MenuTrigger>
                 </div>
 
-                {/* Create Dropdown */}
-                <div className="custom-dropdown">
-                    <MenuTrigger>
-                        <ActionButton isQuiet>
-                            Create <Add />
-                        </ActionButton>
-                        <Menu>
-                            <Item key="new">New File</Item>
-                            <Item key="folder">New Folder</Item>
-                        </Menu>
-                    </MenuTrigger>
-                </div>
             </div>
         </Provider>
     );
