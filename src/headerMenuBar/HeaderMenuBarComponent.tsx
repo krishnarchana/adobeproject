@@ -64,14 +64,13 @@ const HeaderMenuBarComponent: React.FC = () => {
             >
 
                 <Flex alignItems="center" UNSAFE_style={{ marginLeft:"25px", gap: '10px', marginTop: "-70px" }}>
-                    <Text UNSAFE_style={{ marginTop: '5px' }}>Product Group</Text>
+                    <Text>Product Group</Text>
                     <Image
                         src="/images/copilot.jpg"
                         alt="SVG Example"
                         objectFit="contain"
                         width="22px"
                         height="22px"
-                        marginTop="5px"
                     />
                     <TransparentDropdown name="CPG"></TransparentDropdown>
                     <TransparentDropdown name="Category (2)"></TransparentDropdown>
