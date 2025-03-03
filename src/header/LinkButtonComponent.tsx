@@ -9,7 +9,7 @@ const LinkButtonComponent: React.FC<LinkButtonProps> = ({ name }) => {
         <ActionButton
             isQuiet
             UNSAFE_style={{
-                color: "blue",
+                color: "#4381D9",
                 textDecoration: "none",
                 fontWeight: "normal",
             }}
