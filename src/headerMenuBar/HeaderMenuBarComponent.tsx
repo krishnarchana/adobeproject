@@ -22,6 +22,9 @@ const HeaderMenuBarComponent: React.FC = () => {
     ];
 
     return (
+        <div style={{
+            boxShadow: "0px 0px 10px rgba(0, 0, 0, 0.9)",
+        }}>
         <View UNSAFE_style={{ border: "1px solid lightgray" }}>
             <View
                 UNSAFE_style={{
@@ -93,7 +96,8 @@ const HeaderMenuBarComponent: React.FC = () => {
 
             </View>
             
-        </View>
+            </View>
+        </div>
 
     );
 };

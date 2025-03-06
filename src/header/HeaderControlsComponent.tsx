@@ -5,7 +5,9 @@ import Calendar from "@spectrum-icons/workflow/Calendar";
 import GraphBarVertical from "@spectrum-icons/workflow/GraphBarVertical";
 import { CalendarDate } from "@internationalized/date";
 import { Eye } from "lucide-react";
-import Maximize from "@spectrum-icons/workflow/Maximize"; 
+import Maximize from "@spectrum-icons/workflow/Maximize";
+import { parseDate } from "@internationalized/date";
+import { RangeValue } from "@react-types/shared";
 
 
 const HeaderControlsComponent: React.FC = () => {
@@ -39,11 +41,12 @@ const HeaderControlsComponent: React.FC = () => {
                 {/* Date Range Picker */}
                 
                     <DateRangePicker
-                        value={value}
-                        onChange={(newValue) => newValue && setValue(newValue)}
-                        granularity="day"
-                        UNSAFE_className="custom-date-picker gray-border"
+                    onChange={(newValue) => newValue && setValue(newValue)}
+                    granularity="day"
+                    UNSAFE_className="custom-date-picker gray-border"
+                    value={value}
                     />
+               
 
                 {/* Presentation Mode Button */}
                 <Button variant="primary" UNSAFE_className="icon-button gray-border">

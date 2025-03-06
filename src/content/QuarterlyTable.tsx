@@ -7,6 +7,8 @@ import { Flex, View, Heading, Well} from "@adobe/react-spectrum";
 import Flag from "@spectrum-icons/workflow/Flag";
 import Settings from "@spectrum-icons/workflow/Settings";
 import TableComponent from "./TableComponent";
+import CalendarView from "./CalendarView";
+import OutlookCalendar from "./OutlookCalendar";
 
 
 const QuarterlyTable: React.FC = () => {
@@ -49,7 +51,7 @@ const QuarterlyTable: React.FC = () => {
     return (
         <Flex direction="row" height="100vh">
             {/* Left Column (Icons) */}
-            <View width="30px" padding="size-100" backgroundColor="gray-200" UNSAFE_style={{ height: '500px', maxHeight: '500px' }}>
+            <View width="20px" padding="size-100" UNSAFE_style={{ height: '500px', maxHeight: '500px', border:"1px solid lightgray" }}>
                 <Flex direction="column" justifyContent="space-between" height="100%">
                     {/* Top Icons */}
                     <View>
@@ -65,8 +67,10 @@ const QuarterlyTable: React.FC = () => {
                 </Flex>
             </View>
 
-            <TableComponent></TableComponent>
+            <OutlookCalendar></OutlookCalendar>
             {/* Middle Column (Table) 
+                UNSAFE_style={{ color: "gray", fontWeight: "bold" }}
+                UNSAFE_style={{ fontWeight:"bold" }}
             <View flex="1" overflow="auto">
                 <Grid
                     areas={["header header", "content content"]}
@@ -153,7 +157,7 @@ const QuarterlyTable: React.FC = () => {
            
             {/* Right Column (Scrollable List) */}
             <View
-                width="300px"
+                width="20%"
                 backgroundColor="gray-200"
                 padding="size-100"
                 UNSAFE_style={{ height: '500px', maxHeight: '500px', overflowX: 'auto' }}
