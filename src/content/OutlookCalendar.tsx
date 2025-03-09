@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Grid, View, Text, Button, Flex } from "@adobe/react-spectrum";
 import { ChevronRight, ChevronDown, Eye } from "lucide-react";
 
@@ -10,10 +10,15 @@ const data = [
 const quarters = [
     { label: "Q1 24", months: ["JAN", "FEB", "MAR"]},
 ];
+let staticColData = [
+    { label: "Events" },
+    { label: "Offers & Promotions" }
+];
 
 export default function OutlookCalendar() {
     const [expanded, setExpanded] = useState(false);
     const [hexpanded, setHExpanded] = useState(false);
+
     return (
         <Grid
             areas={["fixed quarters"]}
@@ -21,24 +26,24 @@ export default function OutlookCalendar() {
             rows={["auto"]}
             gap="size-100"
             height="66vh"
-            width="80%"
-           
+            width="100%"
+            UNSAFE_style={{ overflowX: "hidden", overflowY:"auto" }}
         >
             {/* Fixed Left Column */}
-            {/*<View>
-                <Flex gap="10px" alignItems="center" height="10vh" width="14vh" UNSAFE_style={{ padding: "5px 10px 0px 30px" }}>
+            <View>
+                <Flex gap="10px" alignItems="center" height="65px" width="158px" UNSAFE_style={{ padding: "5px 0px 0px 20px" }}>
                     <Eye size={16} />
                     <ChevronDown size={16} />
                 </Flex>
-                {data.map((item, index) => (
+                {staticColData.map((item, index) => (
                     <View
                         key={index}
                         UNSAFE_style={{ backgroundColor:"#FBFBFB" }}
                         borderColor="gray-500"
                         borderWidth="thin"
                         borderRadius="small"
-                        height="20vh"
-                        width="14vh"
+                        height={hexpanded ? "307px" : "187px"}
+                        width="158px"
                     >
                         <Flex justifyContent="space-between" alignItems="center" UNSAFE_style={{ padding: "5px 5px 0px 5px" }}>
                             <Text>{item.label}</Text>
@@ -46,14 +51,14 @@ export default function OutlookCalendar() {
                         </Flex>
                     </View>
                 ))}
-            </View>*/}
+            </View>
 
             {/* Scrollable Quarter Columns */}
             <View overflow="auto" UNSAFE_style={{ width: "100%", minWidth:"1100px" }}>
                 <Grid columns={`repeat(${quarters.length}, 300px)`} gap="size-200">
                     {quarters.map((quarter, index) => (
                         <View key={index}>
-                            <Flex gap="20px" alignItems="center" UNSAFE_style={{ height: "6.6vh" }} >
+                            <Flex gap="20px" alignItems="center" height="50px">
                                 <Text UNSAFE_style={{marginLeft:"10px"} }>{quarter.label}</Text>
                                 {expanded ? <ChevronDown size={16} onClick={() => setExpanded(!expanded)} /> : <ChevronRight size={16} onClick={() => setExpanded(!expanded)} />}
                                 {hexpanded ? <ChevronDown size={16} onClick={() => setHExpanded(!hexpanded)} /> : <ChevronRight size={16} onClick={() => setHExpanded(!hexpanded)} />}
@@ -93,8 +98,8 @@ export default function OutlookCalendar() {
                                 </Flex>}
                             {/* Rows for each quarter */}
                             {expanded ? (
-
-                                <View UNSAFE_style={{ border: "1px solid gray", padding: "10px", width:"950px" }}>
+                                <>
+                                    <View UNSAFE_style={{ border: "1px solid gray", padding: "10px", width: "950px", height:"164px" }}>
                                     <Grid
                                         columns={`repeat(${quarter.months.length}, 1fr)`}
                                     >
@@ -115,9 +120,33 @@ export default function OutlookCalendar() {
                                             </Flex>
                                         ))}
                                     </Grid>
-                                </View>
+                                    </View>
+                                    <View UNSAFE_style={{ border: "1px solid gray", padding: "10px", width: "950px", height:"164px" }}>
+                                        <Grid
+                                            columns={`repeat(${quarter.months.length}, 1fr)`}
+                                        >
+                                            {data.map((month, i) => (
+                                                <Flex
+                                                    key={i}
+                                                    direction="row" alignItems="center"
+                                                    UNSAFE_style={{ width: "285px", height: hexpanded ? "80px" : "40px", borderRadius: "10px", border: "1px solid gray", backgroundColor: "#fff", padding: "0px 0px 0px 0px", margin: "10px" }}
+                                                >
+                                                    <View width="25%" height="100%" UNSAFE_style={{ textAlign: "center", alignContent: "center", backgroundColor: "#D5D1D1", borderRadius: "10px 0px 0px 10px" }}>
+                                                        <Text UNSAFE_style={{ fontWeight: "bold" }}>aa</Text>
+                                                    </View>
+
+                                                    {/* Right Section (75%) */}
+                                                    <View width="75%" height="100%" UNSAFE_style={{ textAlign: "center", alignContent: "center" }}>
+                                                        <Text>aaa</Text>
+                                                    </View>
+                                                </Flex>
+                                            ))}
+                                        </Grid>
+                                    </View>
+                                </>
                             ) :
-                                (<View UNSAFE_style={{ border: "1px solid gray", padding: "10px", width:"300px" }}>
+                                (<>
+                                    <View UNSAFE_style={{ border: "1px solid gray", padding: "10px", width: "300px" }}>
                                     {data.map((_, i) => (
                                         <Flex
                                             key={i}
@@ -134,7 +163,27 @@ export default function OutlookCalendar() {
                                             </View>
                                         </Flex>
                                     ))}
-                                </View>)}
+                                    </View>
+                                    <View UNSAFE_style={{ border: "1px solid gray", padding: "10px", width: "300px" }}>
+                                        {data.map((_, i) => (
+                                            <Flex
+                                                key={i}
+                                                direction="row" alignItems="center"
+                                                UNSAFE_style={{ width: "285px", height: hexpanded ? "80px" : "40px", borderRadius: "10px", border: "1px solid gray", backgroundColor: "#fff", padding: "0px 0px 0px 0px", margin: "10px" }}
+                                            >
+                                                <View width="25%" height="100%" UNSAFE_style={{ textAlign: "center", alignContent: "center", backgroundColor: "#D5D1D1", borderRadius: "10px 0px 0px 10px" }}>
+                                                    <Text UNSAFE_style={{ fontWeight: "bold" }}>aa</Text>
+                                                </View>
+
+                                                {/* Right Section (75%) */}
+                                                <View width="75%" height="100%" UNSAFE_style={{ textAlign: "center", alignContent: "center" }}>
+                                                    <Text>aaa</Text>
+                                                </View>
+                                            </Flex>
+                                        ))}
+                                    </View>
+                                    </>
+                                )}
                         </View>
                     ))}
                 </Grid>
