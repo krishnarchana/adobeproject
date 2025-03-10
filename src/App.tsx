@@ -1,5 +1,5 @@
 //import React from 'react';
-import './App.css';
+import './App.scss';
 import HeaderComponent from './header/HeaderComponent';
 import HeaderMenuBarComponent from './headerMenuBar/HeaderMenuBarComponent';
 //import QuarterlyTable from './content/QuarterlyTable';
